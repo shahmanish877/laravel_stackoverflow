@@ -17,4 +17,12 @@ class Answer extends Model
     public function question(){
         return $this->belongsTo(Question::class);
     }
+
+    public function getAnsweredDateAttribute(){
+        if($this->updated_at->gt($this->created_at)){
+            return 'Updated at: '.$this->updated_at->toDateString();
+        }else{
+            return 'Answered at: '.$this->created_at->toDateString();
+        }
+    }
 }

@@ -15,7 +15,7 @@ class QuestionFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(rand(5,10)),
-            'description' => $this->faker->paragraph,
+            'description' => $this->faker->paragraph(5, true),
             'user_id' => rand(1,10),
         ];
     }
