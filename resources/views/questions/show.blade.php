@@ -47,30 +47,24 @@
             <div class="col-md-10 mt-5">
                 <div class="card">
                     <div class="card-header">
-                        <h2> {{ Str::plural('Answer', $question->answers->count()) }} </h2>
+                        <h2> Add New Answer </h2>
                     </div>
 
                     <div class="card-body">
                         @auth
                             @include('answers.create')
                         @endauth
+                    </div>
+                </div>
 
-                        <ul class="answer_list">
-                            @foreach($question->answers as $answer)
-                                    <li>
-                                        <p> {{ $answer->answer }} </p>
-                                        <div class="text-end d-flex justify-content-end" style="font-size: 12px;">
-                                            <p>
-                                                Answered By: <strong> {{ $answer->user->name }} </strong>
-                                            </p>
-                                            <p class="ms-3">
-                                                {{ $answer->answered_date }}
-                                            </p>
-                                        </div>
-                                    </li>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2> {{ Str::plural('Answer', $question->answers->count()) }} </h2>
+                    </div>
 
-                            @endforeach
-                        </ul>
+                    <div class="card-body">
+                        @include('answers.index')
+
                     </div>
                 </div>
             </div>

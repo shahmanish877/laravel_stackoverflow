@@ -40,13 +40,13 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
         $question = $request->user()->questions()->create($request->all());
 
-//        $request->validate([
-//            'title' => 'required',
-//            'description' => 'required'
-//        ]);
-//
 //        $question = Question::create($request->all() + ['user_id'=>Auth::id()]);
         return redirect()->route('questions.index')->with('success', 'Question created successfully');
     }

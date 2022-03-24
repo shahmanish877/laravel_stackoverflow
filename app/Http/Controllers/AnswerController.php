@@ -25,35 +25,12 @@ class AnswerController extends Controller
 
         unset($answer->updated_at);
         unset($answer->created_at);
-        unset($answer->id);
         unset($answer->question_id);
         unset($answer->user_id);
 
 //        return redirect()->route('questions.show',$request->question_id)->with('success', "Answer submitted successfully");
         return response()->json(['answer' => $answer]);
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Answer $answer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Answer $answer)
-    {
-        //
     }
 
     /**
@@ -65,7 +42,10 @@ class AnswerController extends Controller
      */
     public function update(AnswerRequest $request, Answer $answer)
     {
-        //
+        $answer->answer = $request->input('answer');
+        $answer->save();
+        return response()->json(['success' => 1, 'answer'=>$answer->answer]);
+
     }
 
     /**
@@ -76,6 +56,8 @@ class AnswerController extends Controller
      */
     public function destroy(Answer $answer)
     {
-        //
+        $answer->delete();
+        return response()->json(['success' => 1]);
+
     }
 }
