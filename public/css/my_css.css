@@ -1,0 +1,10 @@
+.answer_list li{
+    border-bottom: 1px solid gray;
+    list-style: none;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+ul.answer_list{
+}

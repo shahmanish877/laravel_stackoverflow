@@ -51,27 +51,26 @@
                     </div>
 
                     <div class="card-body">
-                        <div>
-                            @auth
-                                @include('answers.create')
-                            @endauth
-                        </div>
+                        @auth
+                            @include('answers.create')
+                        @endauth
 
-                        <div class="answer_list">
+                        <ul class="answer_list">
                             @foreach($question->answers as $answer)
-                                <div class="border-bottom mt-2 pt-2">
-                                    <p> {{ $answer->answer }} </p>
-                                    <div class="text-end d-flex justify-content-end" style="font-size: 12px;">
-                                        <p>
-                                            Answered By: <strong> {{ $answer->user->name }} </strong>
-                                        </p>
-                                        <p class="ms-3">
-                                            {{ $answer->answered_date }}
-                                        </p>
-                                    </div>
-                                </div>
+                                    <li>
+                                        <p> {{ $answer->answer }} </p>
+                                        <div class="text-end d-flex justify-content-end" style="font-size: 12px;">
+                                            <p>
+                                                Answered By: <strong> {{ $answer->user->name }} </strong>
+                                            </p>
+                                            <p class="ms-3">
+                                                {{ $answer->answered_date }}
+                                            </p>
+                                        </div>
+                                    </li>
+
                             @endforeach
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>

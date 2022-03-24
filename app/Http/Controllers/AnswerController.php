@@ -20,7 +20,17 @@ class AnswerController extends Controller
     {
         $answer = Answer::create($request->all() + ['user_id'=> Auth::id()]);
 
-        return redirect()->route('questions.show',$request->question_id)->with('success', "Answer submitted successfully");
+        $answer->user = Auth::user()->name;
+        $answer->date = $answer->answered_date;
+
+        unset($answer->updated_at);
+        unset($answer->created_at);
+        unset($answer->id);
+        unset($answer->question_id);
+        unset($answer->user_id);
+
+//        return redirect()->route('questions.show',$request->question_id)->with('success', "Answer submitted successfully");
+        return response()->json(['answer' => $answer]);
 
     }
 
