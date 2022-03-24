@@ -2,7 +2,12 @@
     <ul class="answer_list col-md-10 offset-md-1">
         @foreach($question->answers as $answer)
             <li data-id="{{$answer->id}}">
-                <p class="answer_text" data-id="{{$answer->id}}"> {{ $answer->answer }} </p>
+                <p class="answer_text" data-id="{{$answer->id}}">
+                    {{ $answer->answer }}
+                    @if( in_array($loop->index+1, array(1, 5, 10), true ) )
+                        <span class="badge rounded-pill bg-info"> {{ str_ordinal($loop->index+1, true) }} comment</span>
+                    @endif
+                </p>
                 @can(['update-answer'], $answer)
                     @include('answers.edit')
                 @endcan

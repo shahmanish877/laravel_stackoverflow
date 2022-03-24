@@ -25,4 +25,5 @@ class Question extends Model
             return 'Questioned at: '.$this->created_at->toDateString();
         }
     }
+
 }
