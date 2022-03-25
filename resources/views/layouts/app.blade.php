@@ -85,7 +85,8 @@
             @yield('content')
         </main>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/96280842db.js" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

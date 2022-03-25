@@ -29,13 +29,16 @@
 
 <script type="text/javascript">
     function ajax_edit_answer(answer_id){
+        if($('.ajax_edit_form[data-id='+answer_id+'] textarea').val() == ''){
+            alert("Please write some answer.")
+            return false
+        }
 
         $('.ajax_submit_loading[data-id='+answer_id+']').removeClass('visually-hidden')
         var frm = $('.ajax_edit_form[data-id='+answer_id+']')
         frm.css('opacity', '0.2')
         frm.css('cursor', 'not-allowed')
         $('.ajax_edit_form[data-id='+answer_id+'] button').prop( "disabled", true )
-
 
         var update_url = "{{route('answers.update',":id") }}"
         update_url = update_url.replace(':id', answer_id);

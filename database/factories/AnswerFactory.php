@@ -17,7 +17,6 @@ class AnswerFactory extends Factory
             'answer' => $this->faker->paragraph,
             'user_id' => rand(1,10),
             'question_id' => rand(1,10),
-            'votes' => rand(0,100),
         ];
     }
 }

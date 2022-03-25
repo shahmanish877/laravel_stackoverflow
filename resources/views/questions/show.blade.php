@@ -44,31 +44,7 @@
                 </div>
             </div>
 
-            <div class="col-md-10 mt-5">
-                <div class="card">
-                    <div class="card-header">
-                        <h2> Add New Answer </h2>
-                    </div>
-
-                    <div class="card-body">
-                        @auth
-                            @include('answers.create')
-                        @endauth
-                    </div>
-                </div>
-
-                <div class="card mt-5">
-                    <div class="card-header">
-                        <h2> {{ Str::plural('Answer', $question->answers->count()) }} </h2>
-                    </div>
-
-                    <div class="card-body">
-                        @include('answers.index')
-
-                    </div>
-                </div>
-            </div>
-
+            @include('answers.index')
 
         </div>
     </div>

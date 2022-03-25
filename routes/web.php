@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::resource('/questions', \App\Http\Controllers\QuestionController::class);
 Route::resource('/answers', \App\Http\Controllers\AnswerController::class);
+Route::post('/vote', [\App\Http\Controllers\VotesController::class, 'vote_answer'])->name('vote_answer');

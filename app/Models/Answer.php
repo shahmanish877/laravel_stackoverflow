@@ -18,6 +18,10 @@ class Answer extends Model
         return $this->belongsTo(Question::class);
     }
 
+    public function votes(){
+        return $this->hasMany(Votes::class);
+    }
+
     public function getAnsweredDateAttribute(){
         if($this->updated_at->gt($this->created_at)){
             return 'Updated at: '.$this->updated_at->toDateString();
@@ -25,4 +29,6 @@ class Answer extends Model
             return 'Answered at: '.$this->created_at->toDateString();
         }
     }
+
+
 }

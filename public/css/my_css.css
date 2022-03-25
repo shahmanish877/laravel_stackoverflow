@@ -8,3 +8,17 @@
 .answer_list li:first-letter{
     text-transform: capitalize;
 }
+
+.answer_list li:first-child{
+    margin-top: 30px;
+}
+
+.vote-button{
+    position: absolute;
+    top: 5%;
+    right: -10%;
+    text-align: -webkit-center;
+}
+.vote-button .vote-up, .vote-button .vote-down {
+    cursor: pointer;
+}
