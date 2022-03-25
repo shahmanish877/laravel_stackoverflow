@@ -34,31 +34,3 @@
         @endforeach
     </ul>
 </div>
-
-
-<script type="text/javascript">
-    function edit_answer(answer_id){
-        $('.ajax_edit_form[data-id='+answer_id+']').removeClass('visually-hidden')
-        $('.answer_text[data-id='+answer_id+']').hide()
-        $('.update_delete[data-id='+answer_id+']').addClass('visually-hidden')
-    }
-
-    function delete_answer(answer_id){
-        var conf = confirm('Are you sure you want to delete answer?')
-        if(conf == false){
-            return ''
-        }
-
-        var url = "{{route('answers.destroy',":id") }}"
-        url = url.replace(':id', answer_id);
-        $.ajax({
-            type: 'Delete',
-            url: url,
-            data: {_token: "{{ csrf_token() }}"},
-            success: function (data) {
-                if(data.success)
-                    $('.answer_list li[data-id='+answer_id+']').fadeOut(300, function(){ $(this).remove();});
-            }
-        });
-    }
-</script>

@@ -35,7 +35,6 @@ class VotesController extends Controller
             $vote->user_id = Auth::id();
         }
 
-
         $vote->vote = $vote_index;
         $vote->save();
 
